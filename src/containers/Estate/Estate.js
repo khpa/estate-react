@@ -7,6 +7,7 @@ import axios from 'axios';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 
+
 class Estate extends Component {
 
     state = {
@@ -14,7 +15,7 @@ class Estate extends Component {
         property: null,
         isFetching: false,
         error: false,
-        propertyTypeOption: 'DETACHED'
+        propertyTypeOption: 'ALL'
         // property: {
         //    type:"FLAT",
         //    rooms:3,
@@ -43,7 +44,9 @@ class Estate extends Component {
             });
     }
     onSearch = () => {
-        axios.get('http://mydomain.com:3000/properties/?type=' + this.state.propertyTypeOption)
+        axios.get(
+            this.state.propertyTypeOption!=='ALL'?'http://mydomain.com:3000/properties/?type=' + this.state.propertyTypeOption:
+        'http://mydomain.com:3000/properties/')
             .then(response => {
                 console.log('response:', response.data)
                 this.setState({ property: response.data, isFetching: false })
@@ -63,9 +66,9 @@ class Estate extends Component {
                         <p className={classes.Welcome}>Welcome to the Estate app</p>
                     </Grid>
                     <Grid item xs={10}>
-                        <div style={{ textAlign: 'center' }}>
+                        <div style={{ textAlign: 'center', marginBottom:'40px' }}>
                             <PropertyTypeCombo value={propertyTypeOption} onChange={(e) => this.setState({ propertyTypeOption: e.target.value })} />
-                            <Button color="primary" variant="raised" onClick={this.onSearch}>Search</Button>
+                            <Button color="primary" variant="raised" onClick={this.onSearch}>Filter</Button>
                         </div>
                         {isFetching ? <p>Loading...</p> : renderProperty(property)}
                     </Grid>

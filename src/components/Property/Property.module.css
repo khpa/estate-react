@@ -3,3 +3,28 @@ padding-top: 20px;
     width: 50%;
   margin: auto;
 }
+
+.outsidecard{
+  display:flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.cover {
+  flex-basis: 40%;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-basis: 70%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+}
+
+.content {
+  flex: 1 1 auto;
+}

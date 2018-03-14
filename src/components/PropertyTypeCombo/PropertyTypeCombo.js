@@ -3,7 +3,7 @@ import Select from 'material-ui/Select';
 
 
 const propertyTypeCombo = ({ onChange, value }) => {
-    const types = ['FLAT', 'DETACHED', 'SEMI-DETACHED', 'TERASED'];
+    const types = ['FLAT', 'DETACHED', 'SEMI-DETACHED', 'TERASED', 'ALL'];
 
     const options = types.map((e, index) => <option key={index} value={e}>{e}</option>)
 
