@@ -9,9 +9,6 @@ class App extends Component {
   render() {
     return (
       <Aux>
-      <div className={classes.App}>
-      <h1>Estate APP - Welcome</h1>
-      </div>
       <Estate/>
       </Aux>
     );

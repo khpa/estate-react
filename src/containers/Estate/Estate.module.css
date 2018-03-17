@@ -6,3 +6,7 @@
     width: 50%;
     margin: auto;
 }
+
+.tools {
+    flex-grow: 1;
+}
