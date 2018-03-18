@@ -65,14 +65,16 @@ class Estate extends Component {
             .filter((e) => {
                 return (this.state.onSearchCollector[e] !== undefined || this.state.onSearchCollector[e] !== '')
             })
-            .reduce((acc, value) => acc + value + '=' + this.state.onSearchCollector[value], '?')
+            .reduce((acc, value) => acc + value + '=' + this.state.onSearchCollector[value]+'&', '?')
 
-        console.log('string', string);
+        console.log('string', string.slice(0,-1));
+
+        string = string.slice(0,-1);
 
         //const key = `description=${this.state.onSearchCollector.description}&type=${this.state.onSearchCollector.type}`
         //console.log("key", key);
         axios.get(
-            'http://mydomain.com:3000/properties?')
+            'http://mydomain.com:3000/properties'+string)
 
             .then(response => {
                 console.log('response:', response.data)
